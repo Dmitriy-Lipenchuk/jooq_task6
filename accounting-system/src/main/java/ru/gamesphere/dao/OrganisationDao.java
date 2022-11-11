@@ -1,6 +1,5 @@
 package ru.gamesphere.dao;
 
-import generated.Tables;
 import generated.tables.records.OrganisationsRecord;
 import org.jetbrains.annotations.NotNull;
 import org.jooq.DSLContext;
@@ -8,12 +7,9 @@ import org.jooq.Result;
 import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import ru.gamesphere.model.Organisation;
-import ru.gamesphere.model.Product;
 import ru.gamesphere.util.ConnectionManager;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;

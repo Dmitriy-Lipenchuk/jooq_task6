@@ -1,6 +1,5 @@
 package ru.gamesphere.dao;
 
-import generated.Tables;
 import generated.tables.records.InvoicePositionsRecord;
 import org.jetbrains.annotations.NotNull;
 import org.jooq.DSLContext;
@@ -11,8 +10,6 @@ import ru.gamesphere.model.InvoicePosition;
 import ru.gamesphere.util.ConnectionManager;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,39 +17,6 @@ import java.util.List;
 import static generated.Tables.INVOICE_POSITIONS;
 
 public class InvoicePositionDao implements Dao<InvoicePosition> {
-
-    private final static String GET_SQL = """
-            SELECT *
-            FROM invoice_positions
-            WHERE id = ?
-            """;
-
-    private final static String ALL_SQL = """
-            SELECT *
-            FROM invoice_positions
-            """;
-
-    private final static String SAVE_SQL = """
-            INSERT INTO invoice_positions (id, product_id, invoice_id, price, quantity)
-            VALUES (?, ?, ?, ?, ?)
-            """;
-
-    private final static String UPDATE_SQL = """
-            UPDATE invoice_positions
-            SET product_id = ?, invoice_id = ?, price = ?, quantity = ?
-            where id = ?
-            """;
-
-    private final static String DELETE_SQL = """
-            DELETE FROM invoice_positions
-            where id = ?
-            """;
-
-    private final static String GET_BY_INVOICE_ID_SQL = """
-            SELECT *
-            FROM invoice_positions
-            WHERE invoice_id = ?
-            """;
 
     @Override
     public @NotNull InvoicePosition get(int id) {
