@@ -139,6 +139,10 @@ public class OrganisationDao implements Dao<Organisation> {
     }
 
     public static void getOrganisationsByProductQuantity(@NotNull List<Product> products,@NotNull List<Integer> thresholds) {
+        if (products.size() != thresholds.size()) {
+            throw new IllegalStateException("For each product thresholds must be specified");
+        }
+
         try (Connection connection = ConnectionManager.open()) {
             DSLContext context = DSL.using(connection, SQLDialect.POSTGRES);
 
