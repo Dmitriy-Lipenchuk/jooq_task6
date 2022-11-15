@@ -1,2 +1,5 @@
 # Project exclude paths
 /.gradle/
+/.idea/
+/accounting-system/build/
+/jooq-generated/build/
